@@ -193,6 +193,7 @@ def campus(file_name):
 	'''User will enter a campus and the program will display the campus and the users'''
 	option = 'Campus'
 	filename = 'campus.txt'
+	read_text_file(filename)
 	
 	#ask user to search for file
 	campus_search = input('Enter the Campus: (York, Markham, Newnham, King): ').strip().lower()
@@ -242,7 +243,7 @@ def transportation(file_name):
 		transport_preferences = {}
 		unique_transport_entries = set()
 
-		transport_search = input('Enter the diet: (Car, Bus, Shuttle, Train: ').strip().lower()
+		transport_search = input('Enter the transportation: (Car, Bus, Shuttle, Train: ').strip().lower()
 		if transport_search  not in ['car', 'bus', 'shuttle', 'train']:
 			print('Invalid Entry. Must be Car, Bus, Shuttle or Train')
 			sys.exit()
@@ -265,12 +266,12 @@ def transportation(file_name):
 				transport_report = [f"There are 0 occurence of {transport_search}"]
 
 		unique_count = len(unique_transport_entries) 
-		transport_summary = [f"{diet} - {unique_count} occurrence(s)" for diet in transport_preferences.keys()]
+		transport_summary = [f"{transport} - {unique_count} occurrence(s)" for transport in transport_preferences.keys()]
 		transport_report = list(unique_transport_entries) + transport_summary
 		generate_report(option, transport_report)
 
 def dietary(file_name):
-	'''Reads the file 'user_test' and returns a summary of transportation preferences'''
+	'''Reads the file 'user_test' and returns a summary of Dietary preferences'''
 	option = 'Dietary'
 
 	with open(file_name, "r") as file:
